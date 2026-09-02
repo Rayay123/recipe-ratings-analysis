@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f7f2e8">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="wordmark" href="#top">Rated<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#explore">Explore</a>
+        <a href="#test">Test</a>
+        <a href="#model">Model</a>
+      </nav>
+      <a class="github-link" href="https://github.com/Rayay123/recipe-ratings-analysis">View source</a>
+    </header>
+    <main id="top">{{ content }}</main>
+    <footer>
+      <span>Food.com recipe ratings analysis</span>
+      <span>Raynard Taneka · DSC 80</span>
+    </footer>
+  </body>
+</html>

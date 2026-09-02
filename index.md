@@ -22,12 +22,15 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
     </div>
   </div>
 
-  <div class="stat-grid">
-    <div class="stat-card"><span>Recipes analyzed</span><strong>81,173</strong></div>
-    <div class="stat-card"><span>Dessert recipes</span><strong>12,868</strong></div>
-    <div class="stat-card"><span>Dessert share</span><strong>15.8%</strong></div>
-    <div class="stat-card"><span>Zero ratings</span><strong>Missing</strong></div>
-  </div>
+  <table class="summary-table">
+    <caption>Dataset summary</caption>
+    <tbody>
+      <tr><th scope="row">Recipes analyzed</th><td>81,173</td></tr>
+      <tr><th scope="row">Dessert recipes</th><td>12,868</td></tr>
+      <tr><th scope="row">Dessert share</th><td>15.8%</td></tr>
+      <tr><th scope="row">Ratings of 0</th><td>Treated as missing</td></tr>
+    </tbody>
+  </table>
 
   <div class="chart-card">
     <div class="chart-title">

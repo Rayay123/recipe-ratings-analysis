@@ -7,6 +7,7 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
   <div>
     <p class="eyebrow">Food.com Recipes and Ratings</p>
     <h1>Do dessert recipes receive different ratings?</h1>
+    <h2 class="intro-heading">Introduction</h2>
     <p class="hero-copy">For this project, I looked at 81,173 recipes from Food.com. I compared dessert and non-dessert ratings, tested whether the difference was significant, and built a baseline model to predict whether a recipe will be highly rated.</p>
     <p class="byline">Raynard Taneka | DSC 80</p>
   </div>
@@ -74,19 +75,29 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
     </div>
   </div>
 
+</section>
+
+<section class="section" id="baseline">
+  <div class="section-heading">
+    <span class="section-number">Current model</span>
+    <div><h2>Baseline Model</h2><p>I started with logistic regression so I could compare later models against a simple, interpretable baseline.</p></div>
+  </div>
   <div class="model-grid">
-    <article class="model-card"><small>Baseline model</small><h3>Logistic regression</h3><p>The model uses three quantitative recipe features in one sklearn pipeline. I log-transformed minutes, then imputed and standardized all three features.</p><div class="feature-list"><code>minutes</code><code>n_steps</code><code>n_ingredients</code></div></article>
+    <article class="model-card"><small>Features and pipeline</small><h3>Logistic regression</h3><p>The model uses three quantitative recipe features in one sklearn pipeline. I log-transformed minutes, then imputed and standardized all three features.</p><div class="feature-list"><code>minutes</code><code>n_steps</code><code>n_ingredients</code></div></article>
     <article class="model-card"><small>Evaluation</small><h3>Balanced accuracy: 0.518</h3><p>About 75% of recipes are labeled high rating, so balanced accuracy gives both classes equal importance. The baseline is only slightly above random performance across the two classes.</p></article>
   </div>
 </section>
 
-<section class="section" id="next">
+<section class="section" id="final-model">
   <div class="section-heading">
-    <span class="section-number">Next steps</span>
-    <div><h2>Plans for the final report</h2><p>For the final submission, I will improve the model and evaluate whether it performs similarly across different groups.</p></div>
+    <span class="section-number">Next step</span>
+    <div><h2>Final Model</h2><p>For the final submission, I plan to add nutrition values, recipe tags, ingredient information, and submission year. I will compare a tree-based classifier with the baseline and tune at least one hyperparameter using cross-validation.</p></div>
   </div>
-  <div class="next-grid">
-    <article class="next-card"><small>Final Model</small><h3>Richer recipe signals</h3><p>Nutrition values, recipe tags, ingredient patterns, and submission year will be engineered and tested with cross-validation.</p></article>
-    <article class="next-card"><small>Fairness Analysis</small><h3>Performance across groups</h3><p>The final fitted model will be compared across an interesting pair of recipe groups using a permutation test.</p></article>
+</section>
+
+<section class="section" id="fairness">
+  <div class="section-heading">
+    <span class="section-number">Next step</span>
+    <div><h2>Fairness Analysis</h2><p>After choosing the final model, I will compare its performance across two recipe groups with a permutation test. This section will be completed after the final model is fitted.</p></div>
   </div>
 </section>

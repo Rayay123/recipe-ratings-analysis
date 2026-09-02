@@ -82,9 +82,11 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
     <span class="section-number">Current model</span>
     <div><h2>Baseline Model</h2><p>I started with logistic regression so I could compare later models against a simple, interpretable baseline.</p></div>
   </div>
-  <div class="model-grid">
-    <article class="model-card"><small>Features and pipeline</small><h3>Logistic regression</h3><p>The model uses three quantitative recipe features in one sklearn pipeline. I log-transformed minutes, then imputed and standardized all three features.</p><div class="feature-list"><span>minutes</span><span>number of steps</span><span>number of ingredients</span></div></article>
-    <article class="model-card"><small>Evaluation</small><h3>Balanced accuracy: 0.518</h3><p>About 75% of recipes are labeled high rating, so balanced accuracy gives both classes equal importance. The baseline is only slightly above random performance across the two classes.</p></article>
+  <div class="baseline-details">
+    <h3>Model and features</h3>
+    <p>I used logistic regression with recipe minutes, number of steps, and number of ingredients. I log-transformed the minutes column, filled in missing numerical values, and standardized the three features in one sklearn pipeline.</p>
+    <h3>Evaluation</h3>
+    <p>The test balanced accuracy was 0.518. I used balanced accuracy because about 75% of the recipes are in the high-rating class. The score is only a little better than random guessing across the two classes, so there is room to improve the model.</p>
   </div>
 </section>
 

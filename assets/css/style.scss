@@ -80,8 +80,8 @@ h1{margin:0;font-size:clamp(2.5rem,6vw,4.2rem);letter-spacing:-.025em}
 .chart-frame{display:block;width:100%;height:490px;border:0;background:white}
 
 .test-grid{max-width:790px}
-.model-grid,.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.hypothesis,.result-card,.model-card,.next-card{
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hypothesis,.result-card,.next-card{
   padding:22px;
   border:1px solid var(--line);
   border-radius:8px;
@@ -89,16 +89,18 @@ h1{margin:0;font-size:clamp(2.5rem,6vw,4.2rem);letter-spacing:-.025em}
 }
 .hypothesis,.result-card{padding:0;border:0;border-radius:0;background:transparent}
 .hypothesis{margin-bottom:18px}
-.hypothesis small,.model-card small,.next-card small{color:var(--accent);font-weight:700;text-transform:uppercase}
+.hypothesis small,.next-card small{color:var(--accent);font-weight:700;text-transform:uppercase}
 .hypothesis p{margin:4px 0 0;color:var(--muted)}
-.model-card h3,.next-card h3{margin:7px 0 9px;font-size:1.35rem}
-.model-card p,.next-card p{margin:0;color:var(--muted)}
+.next-card h3{margin:7px 0 9px;font-size:1.35rem}
+.next-card p{margin:0;color:var(--muted)}
 .result-card{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
 .result-card h3{margin:0 0 8px;font-size:1.35rem}
 .result-card p{margin:0}
 .result-card .test-stat{margin-top:12px;font-size:.92rem}
-.feature-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
-.feature-list span{padding:3px 8px;border:1px solid var(--line);border-radius:4px;background:#f5f6f5;font-size:.82rem}
+.baseline-details{max-width:790px}
+.baseline-details h3{margin:24px 0 5px;font-size:1.25rem}
+.baseline-details h3:first-child{margin-top:0}
+.baseline-details p{margin:0;color:var(--muted)}
 .next-card{background:transparent}
 
 footer{
@@ -119,7 +121,7 @@ footer{
   .hero{padding:55px 0 48px}
   .section{padding:48px 0}
   .stat-grid{grid-template-columns:1fr 1fr}
-  .model-grid,.next-grid{grid-template-columns:1fr}
+  .next-grid{grid-template-columns:1fr}
   .chart-card{padding:14px}
   .chart-frame{height:500px}
 }

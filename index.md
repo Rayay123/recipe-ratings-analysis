@@ -37,7 +37,7 @@ title: "Beyond the Dessert Aisle"
       <h3>Where the ratings fall</h3>
       <p>The distributions look similar, with both groups concentrated near five stars. Hover over a bar for its exact percentage and recipe count.</p>
     </div>
-    <iframe class="chart-frame" src="assets/dessert_rating_distribution.html" title="Distribution of average recipe ratings for dessert and non-dessert recipes"></iframe>
+    <iframe class="chart-frame" src="assets/dessert_rating_distribution.html?v=2" title="Distribution of average recipe ratings for dessert and non-dessert recipes"></iframe>
   </div>
 </section>
 

@@ -61,7 +61,7 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
     <article class="hypothesis"><small>Null hypothesis</small><p>Dessert and non-dessert recipes have the same average rating. Any observed difference is due to chance.</p></article>
     <article class="hypothesis"><small>Alternative hypothesis</small><p>Non-dessert recipes have a higher average rating than dessert recipes.</p></article>
     <article class="result-card">
-      <div><h3>Result: p-value = 0.0005</h3><p>The observed difference was 0.0509 rating points after 2,000 permutations. I reject the null hypothesis at the 0.05 significance level. The difference is statistically significant, but it is still small in terms of rating points.</p><p class="test-stat"><strong>Test statistic:</strong> mean(non-dessert) - mean(dessert)</p></div>
+      <div><h3>Test result</h3><p>The p-value was 0.0005, so I rejected the null hypothesis at the 0.05 significance level. The observed difference was 0.0509 rating points after 2,000 permutations. This gives evidence that non-dessert recipes have a higher mean rating, but the difference itself is small.</p><p class="test-stat"><strong>Test statistic:</strong> mean(non-dessert) - mean(dessert)</p></div>
     </article>
   </div>
 </section>

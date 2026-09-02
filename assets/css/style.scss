@@ -98,7 +98,7 @@ h1{margin:0;font-size:clamp(2.5rem,6vw,4.2rem);letter-spacing:-.025em}
 .result-card p{margin:0}
 .result-card .test-stat{margin-top:12px;font-size:.92rem}
 .feature-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
-.feature-list code{padding:3px 8px;border:1px solid var(--line);border-radius:4px;background:#f5f6f5;font-size:.82rem}
+.feature-list span{padding:3px 8px;border:1px solid var(--line);border-radius:4px;background:#f5f6f5;font-size:.82rem}
 .next-card{background:transparent}
 
 footer{

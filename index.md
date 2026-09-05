@@ -5,9 +5,9 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
 
 <section class="hero">
   <div>
-    <p class="eyebrow">Food.com Recipes and Ratings</p>
-    <h1>Do dessert recipes receive different ratings?</h1>
-    <p class="hero-copy">I used Food.com recipe and rating data to compare desserts with other recipes. I also built a model that predicts whether a recipe will receive an average rating of at least 4.5.</p>
+    <p class="eyebrow">DSC 80 Final Project</p>
+    <h1>Dessert and Non-Dessert Recipe Ratings</h1>
+    <p class="hero-copy">For this project, I compared ratings for dessert and non-dessert recipes from Food.com. I also made a model to predict whether a recipe's average rating will be at least 4.5.</p>
     <p class="byline">Raynard Taneka | DSC 80</p>
   </div>
 </section>
@@ -17,7 +17,7 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
     <span class="section-number">Introduction</span>
     <div>
       <h2>The data and question</h2>
-      <p>The original data contains 83,782 recipes and 731,927 user interactions. After removing recipes without a valid rating, 81,173 recipes remain. This question matters because ratings help users decide what to make, but desserts are only 15.8% of the recipes in my cleaned data. I use percentages within each group when comparing distributions so the larger non-dessert group does not control the chart.</p>
+      <p>The original files have 83,782 recipes and 731,927 user interactions. After removing recipes without a valid rating, I had 81,173 recipes. I chose this question because people use ratings to decide what to make. Desserts are only 15.8% of the cleaned data, so I use percentages within each group instead of just comparing counts.</p>
     </div>
   </div>
 
@@ -39,7 +39,7 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
     <span class="section-number">Data and EDA</span>
     <div>
       <h2>Cleaning the data</h2>
-      <p>I changed ratings of 0 to missing values because the rating scale runs from 1 to 5. Next, I averaged the remaining ratings for each recipe and merged the results with the recipe table. I used the tags to label recipes as dessert or non-dessert, dropped recipes with no valid average for the rating analysis, and created a high-rating label for averages of at least 4.5.</p>
+      <p>I changed ratings of 0 to missing because the real rating scale is 1 to 5. Then I found the average rating for each recipe and merged it with the recipe table. I used the tags to label desserts, removed recipes with no average for this analysis, and made a high-rating column for averages of at least 4.5.</p>
     </div>
   </div>
 
@@ -56,7 +56,7 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
   </table>
 
   <div class="chart-card">
-    <div class="chart-title"><h3>Overall rating distribution</h3><p>This univariate plot shows that average ratings are concentrated near 5. About three quarters of the recipes have an average of at least 4.5.</p></div>
+    <div class="chart-title"><h3>Overall rating distribution</h3><p>Most average ratings are close to 5. About three quarters of the recipes have an average of at least 4.5.</p></div>
     <iframe class="chart-frame" src="assets/overall-rating.html" title="Distribution of all average recipe ratings"></iframe>
   </div>
 
@@ -86,7 +86,7 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
     <span class="section-number">Missingness</span>
     <div>
       <h2>Assessment of missingness</h2>
-      <p>I believe average rating may be <strong>MNAR</strong>. Whether a recipe gets rated can depend on behavior that is not in the dataset, such as whether users viewed or made it and whether they had a very good or bad experience. Data about page views, saves, and how many people made each recipe could help explain the missingness and possibly make it MAR.</p>
+      <p>I think average rating may be <strong>MNAR</strong>. A recipe might not get rated because nobody made it, or someone might only rate it after a very good or bad result. If I had page views, saves, and the number of people who made each recipe, the missingness might be explainable and become MAR.</p>
     </div>
   </div>
 
@@ -115,7 +115,7 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
   <div class="test-grid">
     <article class="hypothesis"><small>Null hypothesis</small><p>Dessert and non-dessert recipes come from the same distribution of average ratings. Any difference in their means is due to chance.</p></article>
     <article class="hypothesis"><small>Alternative hypothesis</small><p>Non-dessert recipes have a higher mean average rating than dessert recipes.</p></article>
-    <article class="result-card"><h3>Result</h3><p>The test statistic was mean non-dessert rating minus mean dessert rating. The observed difference was 0.0509 and the p-value was 0.0005. I reject the null hypothesis. The data give evidence of an association, but the difference is small and does not show that recipe type causes ratings to change.</p></article>
+    <article class="result-card"><h3>Result</h3><p>The test statistic was mean non-dessert rating minus mean dessert rating. The difference was 0.0509 and the p-value was 0.0005, so I reject the null hypothesis. Non-desserts have a slightly higher mean, but this does not show that recipe type caused the difference.</p></article>
   </div>
   <div class="chart-card">
     <div class="chart-title"><h3>Permutation results</h3><p>None of the simulated differences was as large as the observed difference shown by the red line.</p></div>
@@ -134,11 +134,11 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
   <p>I use balanced accuracy because about 75% of recipes are high-rated. Unlike plain accuracy, balanced accuracy gives equal importance to correctly identifying high- and lower-rated recipes.</p>
 
   <h3>Baseline model</h3>
-  <p>The baseline is logistic regression using three quantitative features: minutes, number of steps, and number of ingredients. Minutes is log-transformed because it is strongly right-skewed, and all three features are median-imputed and standardized in one sklearn pipeline.</p>
+  <p>The baseline is logistic regression using three quantitative features: minutes, number of steps, and number of ingredients. I use the log of minutes because of its large outliers, then fill missing values and standardize the features in one sklearn pipeline.</p>
   <p>The training balanced accuracy is 0.519 and the test balanced accuracy is 0.518. Both scores are only slightly above 0.5, so this model underfits and is not very useful yet.</p>
 
   <h3>Final model</h3>
-  <p>The final model keeps the baseline features and adds submission year, seven parsed nutrition values, and words from recipe names and tags. Year can capture changes in site use over time, nutrition describes the recipe's composition, and the name and tags describe the kind of food. The text columns are converted to TF-IDF features. All transformations and logistic regression are kept in one pipeline.</p>
+  <p>The final model keeps those three features and adds submission year, the seven nutrition values, and words from recipe names and tags. Year can capture changes over time, nutrition describes what is in the recipe, and the name and tags describe the kind of food. I convert the text columns to TF-IDF features and keep everything in one pipeline.</p>
   <p>I used three-fold cross-validation on the training set to compare regularization values of 0.05, 0.2, and 1. The best value was <code>C = 0.05</code>. The final training balanced accuracy is 0.584 and the test balanced accuracy is 0.572, an improvement of about 0.054 on the same test set.</p>
 
   <div class="chart-card">
@@ -168,7 +168,7 @@ title: "Recipe Ratings: Desserts vs. Non-Desserts"
       <tr><th>Permutation p-value</th><td>0.4496</td></tr>
     </tbody>
   </table>
-  <p class="table-note">Since the p-value is greater than 0.05, I fail to reject the null hypothesis. I do not have enough evidence that this model performs worse for desserts under this metric. This does not prove fairness for every possible group or metric.</p>
+  <p class="table-note">The p-value is larger than 0.05, so I fail to reject the null hypothesis. I do not have enough evidence that the model is worse for desserts. This only checks these two groups and this one metric.</p>
 
   <div class="chart-card">
     <div class="chart-title"><h3>Fairness permutation results</h3><p>The observed difference is near the center of the permutation distribution, which matches the large p-value.</p></div>
